@@ -1,15 +1,12 @@
 #include "effects/static.h"
 
-#include "defs.h"
-
 void static_effect_t::setup()
 {
 }
 
-void static_effect_t::set_speed(int s)
+void static_effect_t::set_speed(int, size_t idx, size_t sz)
 {
-    hue = (s * 255) / 100;
-    hue=0;
+    hue = (idx * 255) / sz;
 }
 
 void static_effect_t::loop()
@@ -20,6 +17,6 @@ void static_effect_t::loop()
 
     for (size_t ii=0; ii < LED_COUNT; ++ii)
     {
-        leds[ii] = rgb;
+        board.leds[ii] = rgb;
     }
 }

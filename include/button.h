@@ -2,11 +2,21 @@
 
 #include <Arduino.h>
 
+template<uint8_t P>
 struct btn_t
 {
-    uint8_t pin;
     uint8_t state;
 
-    void set_pin(uint8_t);
-    bool read();
+    void setup()
+    {
+        pinMode(P, INPUT);
+    }
+
+    bool read()
+    {
+        int s = digitalRead(P);
+        bool r = state == LOW && s == HIGH;
+        state = s;
+        return r;
+    }
 };

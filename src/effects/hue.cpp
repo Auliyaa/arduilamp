@@ -7,7 +7,7 @@ void hue_effect_t::apply_leds()
     hsv2rgb_rainbow(hsv, rgb);
     for (size_t ii = 0; ii < LED_COUNT; ++ii)
     {
-        leds[ii] = rgb;
+        board.leds[ii] = rgb;
     }
 }
 
@@ -17,7 +17,7 @@ void hue_effect_t::setup()
     apply_leds();
 }
 
-void hue_effect_t::set_speed(int s)
+void hue_effect_t::set_speed(int s, size_t, size_t)
 {
     speed = float(s * 0.8) / 100.;
 }

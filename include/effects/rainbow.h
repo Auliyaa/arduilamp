@@ -1,6 +1,5 @@
 #pragma once
 
-#include "defs.h"
 #include "effects/effect.h"
 
 // rainbow effect
@@ -17,6 +16,6 @@ struct rainbow_effect_t : public effect_t
     void apply_leds();
 
     virtual void setup();
-    virtual void set_speed(int s);
+    virtual void set_speed(int s, size_t, size_t);
     virtual void loop();
 };
