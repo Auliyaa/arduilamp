@@ -6,18 +6,17 @@
 // rainbow effect
 struct rainbow_effect_t : public effect_t
 {
+    virtual const char* name() const { return "rainbow"; }
+
     static constexpr const int SATURATION = 255;
     static constexpr const int VALUE = 255;
-    static constexpr const int HSTEP = 1;
 
-    CHSV hsv_leds[LED_COUNT];
-    int speed;
+    float hue[LED_COUNT];
+    float speed;
 
     void apply_leds();
 
     virtual void setup();
-
     virtual void set_speed(int s);
-
     virtual void loop();
 };

@@ -2,37 +2,37 @@
 
 void rainbow_effect_t::apply_leds()
 {
+    CHSV hsv(0,SATURATION,VALUE);
     for (size_t ii = 0; ii < LED_COUNT; ++ii)
     {
-        hsv2rgb_rainbow(hsv_leds[ii], leds[ii]);
+        hsv.h = hue[ii];
+        hsv2rgb_rainbow(hsv, leds[ii]);
     }
 }
 
 void rainbow_effect_t::setup()
 {
-    const int s = 360 / LED_COUNT;
+    float h = 0;
+    float step = 360.0 / float(LED_COUNT);
     CHSV hsv(0, SATURATION, VALUE);
     for (size_t ii = 0; ii < LED_COUNT; ++ii)
     {
-        hsv_leds[ii] = hsv;
-        hsv.h += s;
-        hsv.h %= 360;
+        hue[ii] = h + float(ii) * step;
     }
-
     apply_leds();
 }
 
 void rainbow_effect_t::set_speed(int s)
 {
-    speed = s / 10;
+    speed = float(s * 10) / 100.0;
 }
 
 void rainbow_effect_t::loop()
 {
     for (size_t ii = 0; ii < LED_COUNT; ++ii)
     {
-        hsv_leds[ii].h += speed;
-        hsv_leds[ii].h %= 360;
+        hue[ii] += speed;
+        if (hue[ii] > 255) hue[ii] -= 255.0;
     }
     apply_leds();
 }
