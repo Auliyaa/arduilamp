@@ -7,13 +7,15 @@
 #include "effects/rainbow.h"
 #include "effects/hue.h"
 #include "effects/static.h"
+#include "effects/comet.h"
 
 // current board mode
-#define MODES_CNT 3
+#define MODES_CNT 4
 effect_t* mode_values[MODES_CNT] = {
   new rainbow_effect_t(),
   new hue_effect_t(),
-  new static_effect_t()
+  new static_effect_t(),
+  new comet_effect_t()
 };
 int current_mode = 0;
 void current_mode_changed()
