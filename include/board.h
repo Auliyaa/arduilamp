@@ -9,10 +9,10 @@
 #define LED_COUNT 20
 
 // pin allocation
-#define PIN_LED 3
-#define PIN_BTN_SPEED 11
-#define PIN_BTN_BRIGHTNESS 12
-#define PIN_BTN_MODE 13
+#define PIN_LED 13
+#define PIN_BTN_SPEED 10
+#define PIN_BTN_BRIGHTNESS 11
+#define PIN_BTN_MODE 12
 
 // start location for EEPROM writing
 #define EEADDR 166

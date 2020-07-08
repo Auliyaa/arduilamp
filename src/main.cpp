@@ -27,7 +27,7 @@ void current_mode_changed()
 // current board brightness
 #define BRIGHTNESS_CNT 6
 int brightness_values[BRIGHTNESS_CNT] = { 0, 50, 100, 150, 200, 255 };
-int current_brightness = 10;
+int current_brightness = 0;
 void current_brightness_changed()
 {
   FastLED.setBrightness(brightness_values[current_brightness]);
@@ -79,6 +79,15 @@ void load_settings()
   dump_settings();
 }
 
+void init_settings()
+{
+  for (int ii=0; ii < EEPROM.length(); ++ii)
+  {
+    EEPROM.write(ii, 0);
+  }
+  save_settings();
+}
+
 void setup()
 {
   FastLED.addLeds<WS2812B, PIN_LED, GRB>(board.leds, LED_COUNT);
@@ -87,6 +96,9 @@ void setup()
   board.btn_brightness.setup();
   board.btn_mode.setup();
   board.btn_speed.setup();
+
+  // uncomment for the first time the board is executed so that the EEPROM is initialized
+  //init_settings();
 
   load_settings();
 
