@@ -81,7 +81,7 @@ void load_settings()
 
 void init_settings()
 {
-  for (int ii=0; ii < EEPROM.length(); ++ii)
+  for (uint16_t ii=0; ii < EEPROM.length(); ++ii)
   {
     EEPROM.write(ii, 0);
   }
