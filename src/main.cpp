@@ -124,6 +124,7 @@ void loop()
     ++current_mode;
     current_mode %= MODES_CNT;
     current_mode_changed();
+    current_speed_changed();
     save_eeprom = true;
   }
   if (board.btn_speed.read())
