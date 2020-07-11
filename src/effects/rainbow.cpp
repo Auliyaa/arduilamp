@@ -14,7 +14,6 @@ void rainbow_effect_t::setup()
 {
     float h = 0;
     float step = 360.0 / float(LED_COUNT);
-    CHSV hsv(0, SATURATION, VALUE);
     for (size_t ii = 0; ii < LED_COUNT; ++ii)
     {
         hue[ii] = h + float(ii) * step;

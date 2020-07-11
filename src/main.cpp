@@ -5,6 +5,7 @@
 #include "board.h"
 
 #include "effects/rainbow.h"
+#include "effects/random.h"
 #include "effects/hue.h"
 #include "effects/static.h"
 
@@ -13,7 +14,8 @@
 effect_t* mode_values[MODES_CNT] = {
   new rainbow_effect_t(),
   new hue_effect_t(),
-  new static_effect_t()
+  new static_effect_t(),
+  new random_effect_t()
 };
 int current_mode = 0;
 void current_mode_changed()
