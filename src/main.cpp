@@ -26,7 +26,7 @@ void current_mode_changed()
 
 // current board brightness
 #define BRIGHTNESS_CNT 6
-int brightness_values[BRIGHTNESS_CNT] = { 0, 50, 100, 150, 200, 255 };
+int brightness_values[BRIGHTNESS_CNT] = { 25, 50, 100, 150, 200, 255 };
 int current_brightness = 0;
 void current_brightness_changed()
 {
