@@ -20,25 +20,28 @@ effect_t* mode_values[MODES_CNT] = {
 int current_mode = 0;
 void current_mode_changed()
 {
+  if (current_mode >= MODES_CNT) current_mode = 0;
   mode_values[current_mode]->setup();
   FastLED.show();
 }
 
 // current board brightness
-#define BRIGHTNESS_CNT 6
-int brightness_values[BRIGHTNESS_CNT] = { 25, 50, 100, 150, 200, 255 };
+#define BRIGHTNESS_CNT 5
+int brightness_values[BRIGHTNESS_CNT] = { 50, 100, 150, 200, 255 };
 int current_brightness = 0;
 void current_brightness_changed()
 {
+  if (current_brightness >= BRIGHTNESS_CNT) current_brightness = 0;
   FastLED.setBrightness(brightness_values[current_brightness]);
 }
 
 // current board speed
-#define SPEED_CNT 8
-int speed_values[SPEED_CNT] = { 0, 1, 5, 10, 25, 50, 75, 100 };
+#define SPEED_CNT 6
+int speed_values[SPEED_CNT] = { 0, 1, 5, 50, 75, 100 };
 int current_speed = 3;
 void current_speed_changed()
 {
+  if (current_speed >= SPEED_CNT) current_speed = 0;
   mode_values[current_mode]->set_speed(speed_values[current_speed], current_speed, SPEED_CNT);
 }
 
