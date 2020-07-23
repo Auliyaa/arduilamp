@@ -14,7 +14,7 @@ translate(v=[35,0,4.1]) difference() {
             roundedBox([21.5,87.5,10.2], 5, true);
         }
     }
-    translate(v=[0,0,-4.1]) cylinder(h=9, r=3.375, $fn=100);
-    translate(v=[0,-20,-4.1]) cylinder(h=9, r=3.375, $fn=100);
-    translate(v=[0,20,-4.1]) cylinder(h=9, r=3.375, $fn=100);
+    translate(v=[0,0,-4.1]) cylinder(h=9, r=3.875, $fn=100);
+    translate(v=[0,-20,-4.1]) cylinder(h=9, r=3.875, $fn=100);
+    translate(v=[0,20,-4.1]) cylinder(h=9, r=3.875, $fn=100);
 }
