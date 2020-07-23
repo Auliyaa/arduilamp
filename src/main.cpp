@@ -8,14 +8,16 @@
 #include "effects/random.h"
 #include "effects/hue.h"
 #include "effects/static.h"
+#include "effects/sunlight.h"
 
 // current board mode
-#define MODES_CNT 4
+#define MODES_CNT 5
 effect_t* mode_values[MODES_CNT] = {
   new rainbow_effect_t(),
   new hue_effect_t(),
   new static_effect_t(),
-  new random_effect_t()
+  new random_effect_t(),
+  new sunlight_effect_t()
 };
 int current_mode = 0;
 void current_mode_changed()
