@@ -9,7 +9,7 @@ translate(v=[0,0,17.5]) difference() {
     rotate([90,0,0]) roundedBox([8.5,4,300], 0.75, true);
 }
 
-translate(v=[-35,0,4.1]) difference() {
+translate(v=[-35,0,5.1]) difference() {
     union() {
         roundedBox([30,95,10.2], 5, false);
         translate(v=[0,0,2.5]) union() {
