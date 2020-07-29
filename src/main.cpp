@@ -39,7 +39,7 @@ void current_brightness_changed()
 
 // current board speed
 #define SPEED_CNT 6
-int speed_values[SPEED_CNT] = { 0, 1, 5, 50, 75, 100 };
+int speed_values[SPEED_CNT] = { 0, 2, 25, 50, 75, 100 };
 int current_speed = 3;
 void current_speed_changed()
 {
