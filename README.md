@@ -1,5 +1,14 @@
 # arduilamp
 
+## Description
+
+This repository holds the code as well as the STL files and PCB design to create a RGB lamp with an Arduino board.
+
+The lamp itself supports several modes for speed, brightness & animation, all of which are cycled using 3 buttons connected to the controller.
+
+<img src="./photos/model-a-00.jpg" width="480"/>
+<img src="./photos/model-a-01.jpg" width="480"/>
+
 ## BOM
 
 You'll also need a make of the PCB available under the **pcb** folder as well as a print of one of the lamp models (see the **stl/** folder for details).
