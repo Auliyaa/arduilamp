@@ -10,7 +10,7 @@ struct rainbow_effect_t : public effect_t
     static constexpr const int SATURATION = 255;
     static constexpr const int VALUE = 255;
 
-    float hue[LED_COUNT];
+    float hue[LED_GROUP_COUNT];
     float speed;
 
     void apply_leds();

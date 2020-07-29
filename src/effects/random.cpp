@@ -4,7 +4,7 @@ void random_effect_t::setup()
 {
     rainbow_effect_t::setup();
 
-    for (size_t ii = 0; ii < LED_COUNT; ++ii)
+    for (size_t ii = 0; ii < LED_GROUP_COUNT; ++ii)
     {
         hue[ii] = random(256);
     }
@@ -13,7 +13,7 @@ void random_effect_t::setup()
 
 void random_effect_t::loop()
 {
-    for (size_t ii = 0; ii < LED_COUNT; ++ii)
+    for (size_t ii = 0; ii < LED_GROUP_COUNT; ++ii)
     {
         hue[ii] += random(speed);
         if (hue[ii] > 255) hue[ii] -= 255.0;

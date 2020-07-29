@@ -3,18 +3,21 @@
 void rainbow_effect_t::apply_leds()
 {
     CHSV hsv(0,SATURATION,VALUE);
-    for (size_t ii = 0; ii < LED_COUNT; ++ii)
+    for (size_t ii = 0; ii < LED_GROUP_COUNT; ++ii)
     {
         hsv.h = hue[ii];
-        hsv2rgb_rainbow(hsv, board.leds[ii]);
+        for (size_t jj=0; jj < LED_GROUP_SZ; ++jj)
+        {
+            hsv2rgb_rainbow(hsv, board.leds[ii*LED_GROUP_SZ + jj]);
+        }
     }
 }
 
 void rainbow_effect_t::setup()
 {
     float h = 0;
-    float step = 360.0 / float(LED_COUNT);
-    for (size_t ii = 0; ii < LED_COUNT; ++ii)
+    float step = 360.0 / float(LED_GROUP_COUNT);
+    for (size_t ii = 0; ii < LED_GROUP_COUNT; ++ii)
     {
         hue[ii] = h + float(ii) * step;
     }
@@ -28,7 +31,7 @@ void rainbow_effect_t::set_speed(int s, size_t, size_t)
 
 void rainbow_effect_t::loop()
 {
-    for (size_t ii = 0; ii < LED_COUNT; ++ii)
+    for (size_t ii = 0; ii < LED_GROUP_COUNT; ++ii)
     {
         hue[ii] += speed;
         if (hue[ii] > 255) hue[ii] -= 255.0;

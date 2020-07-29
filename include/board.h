@@ -8,6 +8,10 @@
 // global definitions for the RGB strip
 #define LED_COUNT 20
 
+// group leds by color (groups) all leds in the same group will share the same color
+#define LED_GROUP_SZ 1
+#define LED_GROUP_COUNT (LED_COUNT/LED_GROUP_SZ)
+
 // pin allocation
 #define PIN_LED 13
 #define PIN_BTN_SPEED 10
