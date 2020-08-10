@@ -11,14 +11,14 @@
 #include "effects/sunlight.h"
 
 // current board mode
-#define MODES_CNT 5
-effect_t* mode_values[MODES_CNT] = {
-  new rainbow_effect_t(),
-  new hue_effect_t(),
-  new static_effect_t(),
-  new random_effect_t(),
-  new sunlight_effect_t()
-};
+#define MODES_CNT 6
+effect_t *mode_values[MODES_CNT] = {
+    new rainbow_effect_t(),
+    new hue_effect_t(),
+    new static_effect_t<0>(),
+    new static_effect_t<20>(),
+    new random_effect_t(),
+    new sunlight_effect_t()};
 int current_mode = 0;
 void current_mode_changed()
 {
@@ -39,7 +39,7 @@ void current_brightness_changed()
 
 // current board speed
 #define SPEED_CNT 6
-int speed_values[SPEED_CNT] = { 0, 2, 25, 50, 75, 100 };
+int speed_values[SPEED_CNT] = { 0, 2, 5, 30, 65, 100 };
 int current_speed = 3;
 void current_speed_changed()
 {
